@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.udacity.gradle.jokes.Joker;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -15,7 +17,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        // display a joke
+        String joke;
+        Joker myJoker = new Joker();
+        joke = myJoker.getJoke();
+
+        Toast.makeText(this, joke, Toast.LENGTH_LONG).show();
     }
 
 
