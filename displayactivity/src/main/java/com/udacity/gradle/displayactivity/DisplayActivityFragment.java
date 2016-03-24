@@ -1,10 +1,12 @@
 package com.udacity.gradle.displayactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -20,12 +22,13 @@ public class DisplayActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_display, container, false);
 
-//        Intent intent = getActivity().getIntent();
-//        if (intent != null && intent.hasExtra("joke")){
-//            String jokeStr = intent.getStringExtra("joke");
-//            TextView jokeTextView = (TextView) rootView.findViewById(R.id.displayJokeTextView);
-//            jokeTextView.setText(jokeStr);
-//        }
+        Intent intent = getActivity().getIntent();
+
+        String joke = intent.getStringExtra(DisplayActivity.JOKE_KEY);
+        TextView jokeTextView = (TextView) rootView.findViewById(R.id.displayJokeTextView);
+        if (joke != null && joke.length() != 0) {
+            jokeTextView.setText(joke);
+        }
 
         return rootView;
     }

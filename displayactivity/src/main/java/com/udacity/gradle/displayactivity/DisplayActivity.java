@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 
 public class DisplayActivity extends ActionBarActivity {
 
+    public static String JOKE_KEY = "Joke key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

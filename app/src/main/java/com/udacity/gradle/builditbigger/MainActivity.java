@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 import com.udacity.gradle.displayactivity.DisplayActivity;
+import com.udacity.gradle.jokes.Joker;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -17,8 +18,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void launchDisplayActivity(View view){
-
         Intent myIntent = new Intent(this, DisplayActivity.class);
+        Joker myJoker = new Joker();
+        String joke = myJoker.getJoke();
+        myIntent.putExtra(DisplayActivity.JOKE_KEY, joke);
         startActivity(myIntent);
     }
 }
