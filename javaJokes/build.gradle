@@ -6,6 +6,7 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.11'
+    compile project(':backend')
 }
 
 sourceCompatibility = 1.7

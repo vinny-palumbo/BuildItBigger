@@ -28,4 +28,6 @@ dependencies {
     compile project(':displayactivity')
     // Added for AdMob
     compile 'com.google.android.gms:play-services:8.4.0'
+    // Added for Google Cloud Endpoints backend
+    compile project(path: ':backend', configuration: 'android-endpoints')
 }
