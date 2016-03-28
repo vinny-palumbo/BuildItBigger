@@ -20,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    configurations{
+        all*.exclude module: 'appengine-endpoints-deps'
+        all*.exclude module: 'appengine-endpoints'
+    }
 }
 
 dependencies {
