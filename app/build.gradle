@@ -10,6 +10,9 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        // Enabling multidex support.
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -21,6 +24,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:multidex:1.0.0'
+    // Added for Google Cloud Endpoints backend
+    compile project(path: ':backend', configuration: 'android-endpoints')
     compile 'com.android.support:appcompat-v7:23.1.1'
     // Added for Java Library that provides jokes
     compile project(':javaJokes')
@@ -28,6 +34,4 @@ dependencies {
     compile project(':displayactivity')
     // Added for AdMob
     compile 'com.google.android.gms:play-services:8.4.0'
-    // Added for Google Cloud Endpoints backend
-    compile project(path: ':backend', configuration: 'android-endpoints')
 }
