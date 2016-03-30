@@ -18,26 +18,29 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = (Button) findViewById(R.id.tellJokeButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                new EndpointsAsyncTask().execute(getApplicationContext());
-            }
-        });
-
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getResources().getString(R.string.banner_ad_unit_id));
-
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
+        requestNewInterstitial();
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
+                new EndpointsAsyncTask().execute(getApplicationContext());
                 requestNewInterstitial();
             }
         });
+
+        final Button button = (Button) findViewById(R.id.tellJokeButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }else{
+                    new EndpointsAsyncTask().execute(getApplicationContext());
+                }
+            }
+        });
+
     }
 
     private void requestNewInterstitial() {
