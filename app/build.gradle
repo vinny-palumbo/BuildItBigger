@@ -45,5 +45,5 @@ dependencies {
     // Added for Android Library that displays jokes
     compile project(':displayactivity')
     // Added for AdMob
-    compile 'com.google.android.gms:play-services-ads:8.4.0'
+    freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
 }
