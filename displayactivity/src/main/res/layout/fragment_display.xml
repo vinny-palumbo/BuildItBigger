@@ -20,4 +20,13 @@
         android:id="@+id/displayJokeTextView"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_below="@id/displayWelcomeTextView"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:progressDrawable="@drawable/circular_progress_bar"/>
+
 </RelativeLayout>
