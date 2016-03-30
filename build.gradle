@@ -17,3 +17,14 @@ allprojects {
         jcenter()
     }
 }
+
+//   Code taken from loosebazooka's solution to this post on StackOverflow:
+//   http://stackoverflow.com/questions/31434928/android-gradle-task-google-appengine
+task configureTest {
+    dependsOn = [":backend:appengineRun", ":app:connectedCheck"]
+    project(":backend").afterEvaluate { backend ->
+        backend.extensions.appengine.daemon = true
+    }
+}
+
+configureTest.finalizedBy ":backend:appengineStop"
